@@ -1,6 +1,7 @@
-@mixin bgPosition($iconW, $iconH, $iconX, $iconY){
-    $spriteW: {{width}};
-    $spriteH: {{height}};
+@charset "UTF-8";
+@mixin bgPosition($iconW, $iconH, $iconX, $iconY) {
+    $spriteW : {{width}};
+    $spriteH : {{height}};
     @if($spriteW == $iconW) {
         background-position: (0 ($iconY / ($spriteH - $iconH)) * 100%);
     }
