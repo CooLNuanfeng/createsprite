@@ -1,0 +1,8 @@
+{{each items item index}}
+.icon-{{item.name}}{
+    width: {{item.value.width}}px;
+    height: {{item.value.height}}px;
+    background-image: url({{pngname}}.png);
+    background-position: {{-item.value.x}}px {{-item.value.y}}px;
+}
+{{/each}}

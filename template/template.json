@@ -1,0 +1,11 @@
+{
+    "name" : "{{pngname}}",
+    "width" : {{width}},
+    "height" : {{height}},{{each items item index}}
+    "{{item.name}}" : {
+        "width" : {{item.value.width}},
+        "height" : {{item.value.height}},
+        "x" : {{item.value.x}},
+        "y" : {{item.value.y}}
+    },{{/each}}
+}

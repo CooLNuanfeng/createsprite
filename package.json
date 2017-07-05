@@ -1,0 +1,26 @@
+{
+  "name": "createsprite",
+  "version": "1.0.0",
+  "description": "一个适用PC和移动的简单合成雪碧图的小工具",
+  "main": "index.js",
+  "bin": {
+    "sprite": "./index.js"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "sprite",
+    "pc",
+    "移动",
+    "nodejs小工具"
+  ],
+  "author": "nuanfeng",
+  "license": "ISC",
+  "dependencies": {
+    "art-template": "^4.12.1",
+    "commander": "^2.11.0",
+    "mkdirp": "^0.5.1",
+    "spritesmith": "^3.1.1"
+  }
+}
