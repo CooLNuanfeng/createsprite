@@ -34,7 +34,7 @@ function createSprite(options){
 }
 
 function makeOutputFile(opts,result){
-    var data = {}, reg = /\/([a-zA-Z0-9_-]+)\.(?:png|jpg|gif|jpeg)$/i;
+    var data = {}, reg = /([a-zA-Z0-9_-]+)\.(?:png|jpg|gif|jpeg)$/i;
     data.rempx = opts.remPx;
     data.width = result.properties.width;
     data.height = result.properties.height;
