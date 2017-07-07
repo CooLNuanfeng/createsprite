@@ -1,6 +1,6 @@
 {
   "name": "createsprite",
-  "version": "1.0.0",
+  "version": "1.1.1",
   "description": "一个适用PC和移动的简单合成雪碧图的小工具",
   "main": "index.js",
   "bin": {
@@ -20,7 +20,6 @@
   "dependencies": {
     "art-template": "^4.12.1",
     "commander": "^2.11.0",
-    "images": "^3.0.0",
     "mkdirp": "^0.5.1",
     "spritesmith": "^3.1.1"
   }

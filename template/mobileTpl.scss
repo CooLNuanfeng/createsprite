@@ -17,9 +17,8 @@
 .icon-{{item.name}}{
     width: {{item.value.width/(2*rempx)}}rem;
     height: {{item.value.height/(2*rempx)}}rem;
-    {{if algorithm == 'top-down'}}background-size: 100% auto;
-    {{else algorithm == 'left-right'}}background-size: auto 100%;
-    {{/if}}background-image: url({{pngname}}.png);
+    background-size: {{width/(2*rempx)}}rem {{height/(2*rempx)}}rem;
+    background-image: url({{pngname}}.png);
     @include bgPosition({{item.value.width}},{{item.value.height}},{{item.value.x}},{{item.value.y}});
 }
 {{/each}}

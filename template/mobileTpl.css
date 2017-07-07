@@ -2,9 +2,8 @@
 .icon-{{item.name}}{
     width: {{item.value.width/(2*rempx)}}rem;
     height: {{item.value.height/(2*rempx)}}rem;
-    {{if type == 2 && algorithm == 'top-down'}}background-size: 100% auto;
-    {{else type == 2 && algorithm == 'left-right'}}background-size: auto 100%;
-    {{/if}}background-image: url({{pngname}}.png);
+    background-size: {{width/(2*rempx)}}rem {{height/(2*rempx)}}rem;
+    background-image: url({{pngname}}.png);
     {{if item.value.width == width }}background-position: 0 {{(item.value.y / (height - item.value.height))* 100}}%;
     {{else if item.value.height == height}}background-position: {{(item.value.x / (width - item.value.width))* 100}}% 0;
     {{else}}background-position: {{(item.value.x / (width - item.value.width))* 100}}% {{(item.value.y / (height - item.value.height))*100}}%;{{/if}}

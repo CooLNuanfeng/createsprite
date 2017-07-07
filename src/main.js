@@ -3,21 +3,17 @@ const mkdirp = require('mkdirp');
 const template = require('art-template');
 const fs = require('fs');
 const path = require('path');
-const images = require('images');
 
 const pwd = process.cwd();
 
 function createSprite(options){
-    options.src = makeIconSrc(options.type,options.algorithm);
-    options.remPx = 50; // iphone6 375 / 7.5
+    options.src = makeIconSrc();
+    options.remPx = 50; // iphone6 375 / 7.5 暂不做成可配置
     if(!options.src.length){
         console.log('no found icons');
         return;
     }
-    if(options.type == 2 && options.algorithm != 'top-down' && options.algorithm != 'left-right'){
-        options.algorithm = 'top-down';
-        console.log('mobile only select "top-down" or "left-right"');
-    }
+
     //console.log(options,'options');
     Spritesmith.run(options,function(err,result){
         if(err){
@@ -78,49 +74,15 @@ function makeOutputFile(opts,result){
 }
 
 
-function makeIconSrc(type,algorithm){
+function makeIconSrc(){
     let files = fs.readdirSync(pwd);
-    let result = [],sizeArr = [],radioJson = {},setValue,setAttr;
+    let result = [];
     files.forEach(function(name){
         if(checkImg(name)){
-            if(type == 2){
-                let w = images(path.join(pwd,name)).size().width;
-                let h = images(path.join(pwd,name)).size().height;
-                if(algorithm == 'top-down'){
-                    setAttr = 'width';
-                    sizeArr.push(w);
-                }else if(algorithm == 'left-right'){
-                    setAttr = 'height';
-                    sizeArr.push(h);
-                }
-                radioJson[name] = w/h;
-            }
             result.push(path.join(pwd,name));
         }
     });
-    setValue = minNumber(sizeArr);
-    files.forEach(function(name){
-        if(checkImg(name) && type == 2){
-            if(setAttr == 'width'){
-                images(path.join(pwd,name)).size(setValue).save(path.join(pwd,name),{
-                    quality : 80
-                });
-            }else if(setAttr == 'height'){
-                images(path.join(pwd,name)).size(radioJson[name]*setValue,setValue).save(path.join(pwd,name),{
-                    quality : 80
-                });
-            }
-        }
-    });
     return result;
-}
-
-function minNumber(arr){
-    var min = arr[0];
-    arr.forEach(function(ele,index){
-        if(ele < min){ min = ele;}
-    });
-    return min;
 }
 
 function checkImg(name){
