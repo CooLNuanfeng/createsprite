@@ -1,6 +1,6 @@
 {
   "name": "createsprite",
-  "version": "1.1.1",
+  "version": "1.1.2",
   "description": "一个适用PC和移动的简单合成雪碧图的小工具",
   "main": "index.js",
   "bin": {
