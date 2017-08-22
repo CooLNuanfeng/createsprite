@@ -28,3 +28,4 @@ fontsize = (375/750)\*100
 #### 注意
 
 - icon源图片以字母数字或下划线命名
+- 如果按照报错，并提示有权限问题，请尝试 sudo npm install createsprite -g
